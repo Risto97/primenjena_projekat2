@@ -317,7 +317,7 @@ U 1 1 5C69D0B2
 P 3800 1850
 F 0 "C3" H 3918 1896 50  0000 L CNN
 F 1 "470uF" H 3918 1805 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D7.5mm_P2.50mm" H 3838 1700 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.80mm" H 3838 1700 50  0001 C CNN
 F 3 "~" H 3800 1850 50  0001 C CNN
 	1    3800 1850
 	1    0    0    -1  
@@ -328,7 +328,7 @@ U 1 1 5C69DD41
 P 1350 1850
 F 0 "C1" H 1468 1896 50  0000 L CNN
 F 1 "100uF" H 1468 1805 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D7.5mm_P2.50mm" H 1388 1700 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.80mm" H 1388 1700 50  0001 C CNN
 F 3 "~" H 1350 1850 50  0001 C CNN
 	1    1350 1850
 	1    0    0    -1  
@@ -1299,4 +1299,52 @@ Text Label 5050 6050 2    50   ~ 0
 RB10
 Text Label 5050 6150 2    50   ~ 0
 RB11
+$Comp
+L Connector_Generic:Conn_01x04 J9
+U 1 1 5C8930A7
+P 7450 2050
+F 0 "J9" H 7530 2042 50  0000 L CNN
+F 1 "PINS" H 7530 1951 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 7450 2050 50  0001 C CNN
+F 3 "~" H 7450 2050 50  0001 C CNN
+	1    7450 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 2150 7000 2150
+Wire Wire Line
+	7250 2050 7000 2050
+Wire Wire Line
+	7250 1950 7000 1950
+Wire Wire Line
+	7250 2250 7000 2250
+$Comp
+L power:GND #PWR0115
+U 1 1 5C8930B5
+P 7000 2250
+F 0 "#PWR0115" H 7000 2000 50  0001 C CNN
+F 1 "GND" H 7005 2077 50  0000 C CNN
+F 2 "" H 7000 2250 50  0001 C CNN
+F 3 "" H 7000 2250 50  0001 C CNN
+	1    7000 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 6500 4950 6500
+Wire Wire Line
+	4350 6600 4950 6600
+Wire Wire Line
+	4350 4850 5000 4850
+Text Label 5000 4850 2    50   ~ 0
+RA11
+Text Label 4950 6500 2    50   ~ 0
+RC13
+Text Label 4950 6600 2    50   ~ 0
+RC14
+Text Label 7000 1950 0    50   ~ 0
+RC13
+Text Label 7000 2050 0    50   ~ 0
+RC14
+Text Label 7000 2150 0    50   ~ 0
+RA11
 $EndSCHEMATC
