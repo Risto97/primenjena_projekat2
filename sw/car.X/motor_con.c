@@ -93,16 +93,22 @@ void mot2_set_duty(unsigned int duty){
 }
 
 void _mot2_start(){
-  if(!LIMIT_SW1 && !LIMIT_SW2){   // check if limit switches are pressed
+  /* if(!LIMIT_SW1 && !LIMIT_SW2){   // check if limit switches are pressed */
     OC2CONbits.OCM = 0b110;       // pwm mode without fault protection
     T3CONbits.TON=1;
-  }
+  /* } */
 }
 
 void mot2_start(int dir, unsigned int duty){
-  mot2_ch_dir(dir);
-  mot2_set_duty(duty);
-  _mot2_start();
+  /*
+    If not limit switch is pressed steering motor is allowed to work.
+    If limit switch is pressed, enable steering motor only if requested direction is opposite.
+   */
+  if((!LIMIT_SW1 && !LIMIT_SW2) || (LIMIT_SW1 && dir == 1) || ( LIMIT_SW2 && dir == 0)){
+    mot2_ch_dir(dir);
+    mot2_set_duty(duty);
+    _mot2_start();
+  }
 }
 
 
@@ -137,22 +143,26 @@ void limit_init(){
 }
 
 void set_motors(Command_t command){
-  if(command.MOT1_turbo == 1)
-    mot1_set_duty(PWM_TIMER_MAX);
-  else if(command.MOT1_turbo == 0)
-    mot1_set_duty(speed_to_duty(command.MOT1_speed));
+  int mot1_duty, mot2_duty;
+  int mot1_dir, mot2_dir;
 
-  mot2_set_duty(speed_to_duty(command.MOT2_speed));
-  mot1_ch_dir(command.MOT1_dir);
-  mot2_ch_dir(command.MOT2_dir);
+  if(command.MOT1_turbo == 1)
+    mot1_duty = PWM_TIMER_MAX;
+  else if(command.MOT1_turbo == 0)
+    mot1_duty = speed_to_duty(command.MOT1_speed);
+
+  mot2_duty = speed_to_duty(command.MOT2_speed);
+
+  mot1_dir = command.MOT1_dir;
+  mot2_dir = command.MOT2_dir;
 
   if(command.MOT1_status == 1)
-    _mot1_start();
+    mot1_start(mot1_dir, mot1_duty);
   else
     mot1_stop();
 
   if(command.MOT2_status == 1)
-    _mot2_start();
+    mot2_start(mot2_dir, mot2_duty);
   else
     mot2_stop();
 
