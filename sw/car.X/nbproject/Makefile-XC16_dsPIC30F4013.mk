@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=configuration_bits.c main.c system.c traps.c misc.c uart_debug.c uart_rf.c motor_con.c message.c commands.c
+SOURCEFILES_QUOTED_IF_SPACED=configuration_bits.c main.c system.c traps.c misc.c uart_debug.c uart_rf.c motor_con.c message.c commands.c watchdog.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/uart_rf.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/message.o ${OBJECTDIR}/commands.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/misc.o.d ${OBJECTDIR}/uart_debug.o.d ${OBJECTDIR}/uart_rf.o.d ${OBJECTDIR}/motor_con.o.d ${OBJECTDIR}/message.o.d ${OBJECTDIR}/commands.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/uart_rf.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/message.o ${OBJECTDIR}/commands.o ${OBJECTDIR}/watchdog.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/misc.o.d ${OBJECTDIR}/uart_debug.o.d ${OBJECTDIR}/uart_rf.o.d ${OBJECTDIR}/motor_con.o.d ${OBJECTDIR}/message.o.d ${OBJECTDIR}/commands.o.d ${OBJECTDIR}/watchdog.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/uart_rf.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/message.o ${OBJECTDIR}/commands.o
+OBJECTFILES=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/uart_rf.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/message.o ${OBJECTDIR}/commands.o ${OBJECTDIR}/watchdog.o
 
 # Source Files
-SOURCEFILES=configuration_bits.c main.c system.c traps.c misc.c uart_debug.c uart_rf.c motor_con.c message.c commands.c
+SOURCEFILES=configuration_bits.c main.c system.c traps.c misc.c uart_debug.c uart_rf.c motor_con.c message.c commands.c watchdog.c
 
 
 CFLAGS=
@@ -164,6 +164,13 @@ ${OBJECTDIR}/commands.o: commands.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  commands.c  -o ${OBJECTDIR}/commands.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/commands.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/commands.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/watchdog.o: watchdog.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/watchdog.o.d 
+	@${RM} ${OBJECTDIR}/watchdog.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  watchdog.c  -o ${OBJECTDIR}/watchdog.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/watchdog.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/watchdog.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/configuration_bits.o: configuration_bits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -234,6 +241,13 @@ ${OBJECTDIR}/commands.o: commands.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/commands.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  commands.c  -o ${OBJECTDIR}/commands.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/commands.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/commands.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/watchdog.o: watchdog.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/watchdog.o.d 
+	@${RM} ${OBJECTDIR}/watchdog.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  watchdog.c  -o ${OBJECTDIR}/watchdog.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/watchdog.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/watchdog.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

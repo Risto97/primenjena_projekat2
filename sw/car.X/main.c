@@ -16,14 +16,14 @@
 #include "motor_con.h"
 #include "message.h"
 #include "commands.h"
+#include "watchdog.h"
 
 void print_command(Command_t command);
 
 int16_t main(void)
 {
   char *rbuff_rx;
-  char message[3];
-  int sanity = 0;
+  char message[PAYLOAD_LEN+1];
   Command_t command;
 
   ConfigureOscillator();
@@ -33,34 +33,25 @@ int16_t main(void)
   initUART2();
   mot1_init();
   mot2_init();
+  limit_init();
+  Watchdog_init();
+  Watchdog_start();
 
-  UART2_putst("starting\n");
+  sanity_set(0);
+
   while(1)
     {
       if(RF_buff_status() > 0){
         rbuff_rx = RF_rbuff();
-        /* UART2_putst(rbuff_rx); */
-        /* UART1_putst(rbuff_rx); */
 
         if(decode_message(rbuff_rx, message) == 1){
-          UART2_putst("valid message: ");
           decode_command(message, &command);
-          print_command(command);
           set_motors(command);
+          Watchdog_reset();
+          sanity_set(0);
         }
-        else{
-          UART2_putst("not valid message: ");
-        }
-        UART2_putst("\n");
-
-
-      }
-      else{
-        sanity_set(sanity);
-        sanity = !sanity;
       }
       __delay_ms(100);
-
     }
 }
 

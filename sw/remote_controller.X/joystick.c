@@ -41,7 +41,6 @@ int get_joystickY(){
 }
 
 int get_Turbo(){
-  __delay_ms(30);
   return !TURBO;
 }
 

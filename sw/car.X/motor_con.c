@@ -3,6 +3,14 @@
 
 #include "motor_con.h"
 
+void __attribute__((__interrupt__, no_auto_psv)) _CNInterrupt(void)
+{
+  IFS0bits.CNIF = 0; // clear flag
+  if(LIMIT_SW1 == 1 || LIMIT_SW2 == 1){
+    mot2_stop();
+  }
+}
+
 void mot1_init(){
   TRIS_MOT1_DIR_A = 0;
   ADPCFG_MOT1_DIR_A = 1;
@@ -17,7 +25,7 @@ void mot1_init(){
 void mot1_pwm_init(){
   TRIS_MOT1_EN = 0;
 
-  PR2=2500;  // ~ 2khz
+  PR2=PWM_TIMER_MAX;  // ~ 2khz
   OC3RS=1250;
   OC3R=1000;
   OC3CONbits.OCSIDL = 1; // disable in cpu idle
@@ -71,7 +79,7 @@ void mot2_init(){
 void mot2_pwm_init(){
   TRIS_MOT2_EN = 0;
 
-  PR3=2500;  // ~ 2khz
+  PR3=PWM_TIMER_MAX;  // ~ 2khz
   OC2RS=1250;
   OC2R=1000;
   OC2CONbits.OCSIDL = 1; // disable in cpu idle
@@ -85,8 +93,10 @@ void mot2_set_duty(unsigned int duty){
 }
 
 void _mot2_start(){
-  OC2CONbits.OCM = 0b110; // pwm mode without fault protection
-  T3CONbits.TON=1;
+  if(!LIMIT_SW1 && !LIMIT_SW2){   // check if limit switches are pressed
+    OC2CONbits.OCM = 0b110;       // pwm mode without fault protection
+    T3CONbits.TON=1;
+  }
 }
 
 void mot2_start(int dir, unsigned int duty){
@@ -113,8 +123,25 @@ void mot2_ch_dir(int dir){
   }
 }
 
+void limit_init(){
+  TRIS_LIMIT_SW1 = 1;
+  TRIS_LIMIT_SW2 = 1;
+
+  CNEN1bits.CN0IE = 1; // enable interupts for CN0
+  CNEN1bits.CN1IE = 1; // enable interupts for CN1
+  CNPU1bits.CN0PUE = 1; // enable weak pull-up
+  CNPU1bits.CN1PUE = 1; // enable weak pull-up
+  IFS0bits.CNIF = 0; // clear flag
+  IPC3bits.CNIP = 7; // set max priority
+  IEC0bits.CNIE = 1; // enable CN interrupt
+}
+
 void set_motors(Command_t command){
-  mot1_set_duty(speed_to_duty(command.MOT1_speed));
+  if(command.MOT1_turbo == 1)
+    mot1_set_duty(PWM_TIMER_MAX);
+  else if(command.MOT1_turbo == 0)
+    mot1_set_duty(speed_to_duty(command.MOT1_speed));
+
   mot2_set_duty(speed_to_duty(command.MOT2_speed));
   mot1_ch_dir(command.MOT1_dir);
   mot2_ch_dir(command.MOT2_dir);

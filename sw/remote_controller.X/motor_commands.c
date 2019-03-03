@@ -3,33 +3,35 @@
 
 #include "motor_commands.h"
 
-Command_t gen_command(int val_x, int val_y){
+Command_t gen_command(int val_x, int val_y, int turbo){
   Command_t command;
   int x = discrete_ADC(val_x);
   int y = discrete_ADC(val_y);
 
-  if(x != 0)
+  if(y != 0)
     command.MOT1_status = 1;
   else
     command.MOT1_status = 0;
 
-  if(y != 0)
+  if(x != 0)
     command.MOT2_status = 1;
   else
     command.MOT2_status = 0;
 
-  if(x >= 0)
+  if(y >= 0)
     command.MOT1_dir = 1;
-  else if(x < 0)
+  else if(y < 0)
     command.MOT1_dir = 0;
 
-  if(y >= 0)
+  if(x >= 0)
     command.MOT2_dir = 1;
-  else if(y < 0)
+  else if(x < 0)
     command.MOT2_dir = 0;
 
-  command.MOT1_speed = abs(x);
-  command.MOT2_speed = abs(y);
+  command.MOT1_speed = abs(y);
+  command.MOT2_speed = abs(x);
+
+  command.MOT1_turbo = turbo;
 
   return command;
 }

@@ -12,6 +12,7 @@
      - MOT2: 1 bit
      - MOT1_DIR: 1 bit
      - MOT2_DIR: 1 bit
+     - MOT1_TURBO: 1 bit
 
    Intensity: 1 byte   // ignore when stop
      - MOT1: 4 bits
@@ -23,6 +24,7 @@ typedef struct CommandTag{
   unsigned int MOT2_status;
   unsigned int MOT1_dir;
   unsigned int MOT2_dir;
+  unsigned int MOT1_turbo;
   unsigned int MOT1_speed;
   unsigned int MOT2_speed;
 } Command_t;

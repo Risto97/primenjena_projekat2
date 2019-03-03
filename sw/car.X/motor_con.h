@@ -25,6 +25,14 @@
 #define TRIS_MOT2_EN TRISDbits.TRISD1
 #define MOT2_EN LATDbits.LATD1
 
+#define TRIS_LIMIT_SW1 TRISCbits.TRISC14
+#define LIMIT_SW1 PORTCbits.RC14
+
+#define TRIS_LIMIT_SW2 TRISCbits.TRISC13
+#define LIMIT_SW2 PORTCbits.RC13
+
+#define PWM_TIMER_MAX 2500 // ~2khz
+
 void mot1_init();
 void mot1_pwm_init();
 void mot1_set_duty(unsigned int duty);
@@ -40,6 +48,8 @@ void _mot2_start();
 void mot2_start(int dir, unsigned int duty);
 void mot2_stop();
 void mot2_ch_dir(int dir);
+
+void limit_init();
 
 void set_motors(Command_t command);
 int speed_to_duty(int speed);

@@ -38,8 +38,8 @@ char *RF_rbuff(){
 
 void initRF()
 {
-  U1BRG = 0x0022; // 9600 baud rate on 16MHz
-  /* U1BRG = 0x0120; // 1200 baud rate on 16MHz */
+  /* U1BRG = 0x0022; // 9600 baud rate on 16MHz */
+  U1BRG = 0x0120; // 1200 baud rate on 16MHz
   IEC0bits.U1RXIE=1;
   U1STA&=0xfffc;
   U1MODEbits.ALTIO=0;// RF2, RF3
