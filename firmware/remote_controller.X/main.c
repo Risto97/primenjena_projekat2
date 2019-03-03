@@ -10,49 +10,74 @@
 #include "system.h"
 #include <libpic30.h>
 
-#include "input_periphs.h"
-#include "uart_debug.h"
+/* #include "input_periphs.h" */
+/* #include "uart_debug.h" */
+/* #include "rf_tx.h" */
+
+void WriteUART1(unsigned int data){
+
+  while(!U1STAbits.TRMT);
+
+  if(U1MODEbits.PDSEL == 3)
+    U1TXREG = data;
+  else
+    U1TXREG = data & 0xFF;
+}
+
+void UART1_putst(char *str){
+  while((*str)!=0) {
+    WriteUART1(*str);
+    if (*str==13) WriteUART1(10);
+    if (*str==10) WriteUART1(13);
+    str++;
+  }
+}
 
 int16_t main(void)
 {
     ConfigureOscillator();
 
-    sw_init();
-    initUART2();
-    joystick_init();
+    U1BRG = 0x0022; // 9600 baud rate on 16MHz
+    /* U1BRG = 0x0120; // 1200 baud rate on 16MHz */
+    /* U1BRG = 0x080; // 1200 baud rate on 16MHz */
+    IEC0bits.U1RXIE=1;
+    U1STA&=0xfffc;
+    U1MODEbits.ALTIO=0;// RF2, RF3
+    U1MODEbits.UARTEN=1;
+    U1STAbits.UTXEN=1;
 
-    joystick_ADC_start();
+    TRISFbits.TRISF2 = 1;
+    TRISFbits.TRISF3 = 0;
 
-    int x;
-    int y;
-    int turbo;
+    /* sw_init(); */
+    /* initUART2(); */
+    /* joystick_init(); */
+    /* joystick_ADC_start(); */
+
+
+    /* initRF(); */
+    /* int x; */
+    /* int y; */
 
     while(1)
     {
-      /* x = get_joystickX(); */
+      UART1_putst("asdasd");
+      /* set_sanity(1); */
+      /* UART2_putst("bdcbdcd"); */
       /* y = get_joystickY(); */
-      turbo = get_Turbo();
+      /* x = get_joystickX(); */
+      /* UART1_putst("x: "); */
+      /* WriteUART1dec2string(x); */
+      /* UART1_putst("\n"); */
+      /* UART1_putst("y: "); */
+      /* WriteUART1dec2string(y); */
+      /* UART1_putst("\n"); */
+      /* UART1_putst("------------------\n"); */
 
-      /* UART2_putst("x: "); */
-      /* WriteUART2dec2string(x); */
-      /* UART2_putst("\n"); */
-      /* UART2_putst("y: "); */
-      /* WriteUART2dec2string(y); */
-      /* UART2_putst("\n"); */
-      UART2_putst("turbo: ");
-      WriteUART2dec2string(turbo);
-      UART2_putst("\n");
-      UART2_putst("USR1: ");
-      WriteUART2dec2string(get_USR1());
-      UART2_putst("\n");
-      UART2_putst("USR2: ");
-      WriteUART2dec2string(get_USR2());
-      UART2_putst("\n");
-      UART2_putst("USR3: ");
-      WriteUART2dec2string(get_USR3());
-      UART2_putst("\n");
-      UART2_putst("---------------------\n");
-      __delay_ms(400);
+      __delay_ms(63);
+      /* UART1_putst("asdasd"); */
+      /* /\* set_sanity(0); *\/ */
+      /* __delay_ms(63); */
 
     }
 }

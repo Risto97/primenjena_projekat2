@@ -3,7 +3,7 @@
 
 #include "input_periphs.h"
 
-unsigned int adcbuf0, adcbuf1;
+static unsigned int adcbuf0, adcbuf1;
 void __attribute__((__interrupt__, no_auto_psv)) _ADCInterrupt(void)
 {
 	adcbuf0=ADCBUF0;//0
@@ -20,6 +20,10 @@ void sw_init(){
   TRIS_USR3 = 1;
   TRIS_SANITY = 0;
   SANITY = 0;
+}
+
+void set_sanity(int value){
+  SANITY = value;
 }
 
 void joystick_init(){
@@ -68,14 +72,14 @@ int get_USR3(){
 
 void ADCinit_Joystick(void)
 {
-  ADCON1bits.ADSIDL=0;
-  ADCON1bits.FORM=0;
+  ADCON1bits.ADSIDL=1;
+  ADCON1bits.FORM=0b01; //signed representation
   ADCON1bits.SSRC=7;
   ADCON1bits.SAMP=1;
 
-  ADCON2bits.VCFG=0;
-  ADCON2bits.CSCNA=0;
-  ADCON2bits.SMPI=1;
+  ADCON2bits.VCFG=0; // AVdd and AVss references
+  ADCON2bits.CSCNA=1;
+  ADCON2bits.SMPI=15; // oversampling
   ADCON2bits.BUFM=0;
   ADCON2bits.ALTS=0;
 
@@ -86,7 +90,7 @@ void ADCinit_Joystick(void)
   ADCHSbits.CH0NB=0;
   ADCHSbits.CH0NA=0;
 
-  ADCHSbits.CH0SA=1;
+  ADCHSbits.CH0SA=0;
   ADCHSbits.CH0SB=0;
 
   ADCSSL=0b0000000000000011;

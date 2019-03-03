@@ -37,4 +37,6 @@ int get_USR1();
 int get_USR2();
 int get_USR3();
 
+void set_sanity(int value);
+
 #endif

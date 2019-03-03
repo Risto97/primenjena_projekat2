@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c system.c traps.c misc.c uart_debug.c motor_con.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c system.c traps.c misc.c uart_debug.c motor_con.c rf_rx.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/motor_con.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/misc.o.d ${OBJECTDIR}/uart_debug.o.d ${OBJECTDIR}/motor_con.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/rf_rx.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/misc.o.d ${OBJECTDIR}/uart_debug.o.d ${OBJECTDIR}/motor_con.o.d ${OBJECTDIR}/rf_rx.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/motor_con.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/rf_rx.o
 
 # Source Files
-SOURCEFILES=main.c system.c traps.c misc.c uart_debug.c motor_con.c
+SOURCEFILES=main.c system.c traps.c misc.c uart_debug.c motor_con.c rf_rx.c
 
 
 CFLAGS=
@@ -136,6 +136,13 @@ ${OBJECTDIR}/motor_con.o: motor_con.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  motor_con.c  -o ${OBJECTDIR}/motor_con.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor_con.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/motor_con.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/rf_rx.o: rf_rx.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rf_rx.o.d 
+	@${RM} ${OBJECTDIR}/rf_rx.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  rf_rx.c  -o ${OBJECTDIR}/rf_rx.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/rf_rx.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/rf_rx.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -178,6 +185,13 @@ ${OBJECTDIR}/motor_con.o: motor_con.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/motor_con.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  motor_con.c  -o ${OBJECTDIR}/motor_con.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor_con.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/motor_con.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/rf_rx.o: rf_rx.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rf_rx.o.d 
+	@${RM} ${OBJECTDIR}/rf_rx.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  rf_rx.c  -o ${OBJECTDIR}/rf_rx.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/rf_rx.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/rf_rx.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

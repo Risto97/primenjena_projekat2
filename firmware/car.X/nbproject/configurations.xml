@@ -22,7 +22,8 @@
       <itemPath>uart_debug.h</itemPath>
       <itemPath>motor_con.c</itemPath>
       <itemPath>motor_con.h</itemPath>
-      <itemPath>activate-overloads.h</itemPath>
+      <itemPath>rf_rx.c</itemPath>
+      <itemPath>rf_rx.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

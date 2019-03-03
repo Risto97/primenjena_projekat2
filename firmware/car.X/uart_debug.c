@@ -3,11 +3,11 @@
 
 #include "uart_debug.h"
 
-char tempRX;
-unsigned int wordReceived = 0;
-char buff[32];
-unsigned int len = 0;
-int n = 0;
+static char tempRX;
+static unsigned int wordReceived = 0;
+static char buff[32];
+static unsigned int len = 0;
+static int n = 0;
 void __attribute__((__interrupt__, no_auto_psv)) _U2RXInterrupt(void) {
   IFS1bits.U2RXIF = 0;
   tempRX = U2RXREG;
@@ -21,7 +21,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _U2RXInterrupt(void) {
   }
 }
 
-int getBuff(){
+int UART2_buff_status(){
   unsigned int len_tmp = len;
   if(wordReceived == 1){
     len = 0;
@@ -31,13 +31,16 @@ int getBuff(){
   else
     return -1;
 }
-char *rbuff(){
+
+char *UART2_rbuff(){
   return buff;
 }
 
 void initUART2()
 {
-  U2BRG = 0x0022;
+  /* U2BRG = 0x0022; */
+  /* U2BRG = 0x0067; */
+  U2BRG = 0x000B;
   IEC1bits.U2RXIE=1;
   U2STA&=0xfffc;
   U2MODEbits.UARTEN=1;
