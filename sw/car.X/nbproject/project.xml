@@ -12,14 +12,12 @@
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <asminc-extensions/>
             <make-dep-projects/>
-            <sourceRootList/>
+            <sourceRootList>
+                <sourceRootElem>../shared_lib</sourceRootElem>
+            </sourceRootList>
             <confList>
                 <confElem>
                     <name>XC16_dsPIC30F4013</name>
-                    <type>2</type>
-                </confElem>
-                <confElem>
-                    <name>XC16_dsPIC30F6015</name>
                     <type>2</type>
                 </confElem>
             </confList>

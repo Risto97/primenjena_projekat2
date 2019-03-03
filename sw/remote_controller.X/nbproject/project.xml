@@ -14,14 +14,11 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>../car.X</sourceRootElem>
+                <sourceRootElem>../shared_lib</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
                     <name>XC16_dsPIC30F4013</name>
-                    <type>2</type>
-                </confElem>
-                <confElem>
-                    <name>XC16_dsPIC30F6015</name>
                     <type>2</type>
                 </confElem>
             </confList>

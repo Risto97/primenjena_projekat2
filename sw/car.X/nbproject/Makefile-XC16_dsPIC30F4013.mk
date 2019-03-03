@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=configuration_bits.c main.c system.c traps.c misc.c uart_debug.c uart_rf.c motor_con.c message.c commands.c watchdog.c
+SOURCEFILES_QUOTED_IF_SPACED=configuration_bits.c main.c system.c traps.c misc.c motor_con.c watchdog.c ../shared_lib/commands.c ../shared_lib/message.c ../shared_lib/uart_debug.c ../shared_lib/uart_rf.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/uart_rf.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/message.o ${OBJECTDIR}/commands.o ${OBJECTDIR}/watchdog.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/misc.o.d ${OBJECTDIR}/uart_debug.o.d ${OBJECTDIR}/uart_rf.o.d ${OBJECTDIR}/motor_con.o.d ${OBJECTDIR}/message.o.d ${OBJECTDIR}/commands.o.d ${OBJECTDIR}/watchdog.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/watchdog.o ${OBJECTDIR}/_ext/689862490/commands.o ${OBJECTDIR}/_ext/689862490/message.o ${OBJECTDIR}/_ext/689862490/uart_debug.o ${OBJECTDIR}/_ext/689862490/uart_rf.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/misc.o.d ${OBJECTDIR}/motor_con.o.d ${OBJECTDIR}/watchdog.o.d ${OBJECTDIR}/_ext/689862490/commands.o.d ${OBJECTDIR}/_ext/689862490/message.o.d ${OBJECTDIR}/_ext/689862490/uart_debug.o.d ${OBJECTDIR}/_ext/689862490/uart_rf.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/uart_debug.o ${OBJECTDIR}/uart_rf.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/message.o ${OBJECTDIR}/commands.o ${OBJECTDIR}/watchdog.o
+OBJECTFILES=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/misc.o ${OBJECTDIR}/motor_con.o ${OBJECTDIR}/watchdog.o ${OBJECTDIR}/_ext/689862490/commands.o ${OBJECTDIR}/_ext/689862490/message.o ${OBJECTDIR}/_ext/689862490/uart_debug.o ${OBJECTDIR}/_ext/689862490/uart_rf.o
 
 # Source Files
-SOURCEFILES=configuration_bits.c main.c system.c traps.c misc.c uart_debug.c uart_rf.c motor_con.c message.c commands.c watchdog.c
+SOURCEFILES=configuration_bits.c main.c system.c traps.c misc.c motor_con.c watchdog.c ../shared_lib/commands.c ../shared_lib/message.c ../shared_lib/uart_debug.c ../shared_lib/uart_rf.c
 
 
 CFLAGS=
@@ -98,156 +98,156 @@ ${OBJECTDIR}/configuration_bits.o: configuration_bits.c  nbproject/Makefile-${CN
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/configuration_bits.o.d 
 	@${RM} ${OBJECTDIR}/configuration_bits.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  configuration_bits.c  -o ${OBJECTDIR}/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/configuration_bits.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  configuration_bits.c  -o ${OBJECTDIR}/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/configuration_bits.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/configuration_bits.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/system.o: system.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/system.o.d 
 	@${RM} ${OBJECTDIR}/system.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  system.c  -o ${OBJECTDIR}/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/system.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  system.c  -o ${OBJECTDIR}/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/system.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/system.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/traps.o: traps.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/traps.o.d 
 	@${RM} ${OBJECTDIR}/traps.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  traps.c  -o ${OBJECTDIR}/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/traps.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  traps.c  -o ${OBJECTDIR}/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/traps.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/traps.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/misc.o: misc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/misc.o.d 
 	@${RM} ${OBJECTDIR}/misc.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  misc.c  -o ${OBJECTDIR}/misc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/misc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  misc.c  -o ${OBJECTDIR}/misc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/misc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/misc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/uart_debug.o: uart_debug.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/uart_debug.o.d 
-	@${RM} ${OBJECTDIR}/uart_debug.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  uart_debug.c  -o ${OBJECTDIR}/uart_debug.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/uart_debug.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/uart_debug.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/uart_rf.o: uart_rf.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/uart_rf.o.d 
-	@${RM} ${OBJECTDIR}/uart_rf.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  uart_rf.c  -o ${OBJECTDIR}/uart_rf.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/uart_rf.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/uart_rf.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/motor_con.o: motor_con.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/motor_con.o.d 
 	@${RM} ${OBJECTDIR}/motor_con.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  motor_con.c  -o ${OBJECTDIR}/motor_con.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor_con.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  motor_con.c  -o ${OBJECTDIR}/motor_con.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor_con.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/motor_con.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/message.o: message.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/message.o.d 
-	@${RM} ${OBJECTDIR}/message.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  message.c  -o ${OBJECTDIR}/message.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/message.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/message.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/commands.o: commands.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/commands.o.d 
-	@${RM} ${OBJECTDIR}/commands.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  commands.c  -o ${OBJECTDIR}/commands.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/commands.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/commands.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/watchdog.o: watchdog.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/watchdog.o.d 
 	@${RM} ${OBJECTDIR}/watchdog.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  watchdog.c  -o ${OBJECTDIR}/watchdog.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/watchdog.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  watchdog.c  -o ${OBJECTDIR}/watchdog.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/watchdog.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/watchdog.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/689862490/commands.o: ../shared_lib/commands.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/689862490" 
+	@${RM} ${OBJECTDIR}/_ext/689862490/commands.o.d 
+	@${RM} ${OBJECTDIR}/_ext/689862490/commands.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../shared_lib/commands.c  -o ${OBJECTDIR}/_ext/689862490/commands.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/689862490/commands.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/689862490/commands.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/689862490/message.o: ../shared_lib/message.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/689862490" 
+	@${RM} ${OBJECTDIR}/_ext/689862490/message.o.d 
+	@${RM} ${OBJECTDIR}/_ext/689862490/message.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../shared_lib/message.c  -o ${OBJECTDIR}/_ext/689862490/message.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/689862490/message.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/689862490/message.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/689862490/uart_debug.o: ../shared_lib/uart_debug.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/689862490" 
+	@${RM} ${OBJECTDIR}/_ext/689862490/uart_debug.o.d 
+	@${RM} ${OBJECTDIR}/_ext/689862490/uart_debug.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../shared_lib/uart_debug.c  -o ${OBJECTDIR}/_ext/689862490/uart_debug.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/689862490/uart_debug.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/689862490/uart_debug.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/689862490/uart_rf.o: ../shared_lib/uart_rf.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/689862490" 
+	@${RM} ${OBJECTDIR}/_ext/689862490/uart_rf.o.d 
+	@${RM} ${OBJECTDIR}/_ext/689862490/uart_rf.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../shared_lib/uart_rf.c  -o ${OBJECTDIR}/_ext/689862490/uart_rf.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/689862490/uart_rf.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1    -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/689862490/uart_rf.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
 ${OBJECTDIR}/configuration_bits.o: configuration_bits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/configuration_bits.o.d 
 	@${RM} ${OBJECTDIR}/configuration_bits.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  configuration_bits.c  -o ${OBJECTDIR}/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/configuration_bits.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  configuration_bits.c  -o ${OBJECTDIR}/configuration_bits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/configuration_bits.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/configuration_bits.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/system.o: system.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/system.o.d 
 	@${RM} ${OBJECTDIR}/system.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  system.c  -o ${OBJECTDIR}/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/system.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  system.c  -o ${OBJECTDIR}/system.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/system.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/system.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/traps.o: traps.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/traps.o.d 
 	@${RM} ${OBJECTDIR}/traps.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  traps.c  -o ${OBJECTDIR}/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/traps.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  traps.c  -o ${OBJECTDIR}/traps.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/traps.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/traps.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/misc.o: misc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/misc.o.d 
 	@${RM} ${OBJECTDIR}/misc.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  misc.c  -o ${OBJECTDIR}/misc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/misc.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  misc.c  -o ${OBJECTDIR}/misc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/misc.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/misc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/uart_debug.o: uart_debug.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/uart_debug.o.d 
-	@${RM} ${OBJECTDIR}/uart_debug.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  uart_debug.c  -o ${OBJECTDIR}/uart_debug.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/uart_debug.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/uart_debug.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/uart_rf.o: uart_rf.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/uart_rf.o.d 
-	@${RM} ${OBJECTDIR}/uart_rf.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  uart_rf.c  -o ${OBJECTDIR}/uart_rf.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/uart_rf.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/uart_rf.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/motor_con.o: motor_con.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/motor_con.o.d 
 	@${RM} ${OBJECTDIR}/motor_con.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  motor_con.c  -o ${OBJECTDIR}/motor_con.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor_con.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  motor_con.c  -o ${OBJECTDIR}/motor_con.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/motor_con.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/motor_con.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/message.o: message.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/message.o.d 
-	@${RM} ${OBJECTDIR}/message.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  message.c  -o ${OBJECTDIR}/message.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/message.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/message.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/commands.o: commands.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/commands.o.d 
-	@${RM} ${OBJECTDIR}/commands.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  commands.c  -o ${OBJECTDIR}/commands.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/commands.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
-	@${FIXDEPS} "${OBJECTDIR}/commands.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/watchdog.o: watchdog.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/watchdog.o.d 
 	@${RM} ${OBJECTDIR}/watchdog.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  watchdog.c  -o ${OBJECTDIR}/watchdog.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/watchdog.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -msfr-warn=off  
+	${MP_CC} $(MP_EXTRA_CC_PRE)  watchdog.c  -o ${OBJECTDIR}/watchdog.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/watchdog.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/watchdog.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/689862490/commands.o: ../shared_lib/commands.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/689862490" 
+	@${RM} ${OBJECTDIR}/_ext/689862490/commands.o.d 
+	@${RM} ${OBJECTDIR}/_ext/689862490/commands.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../shared_lib/commands.c  -o ${OBJECTDIR}/_ext/689862490/commands.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/689862490/commands.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/689862490/commands.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/689862490/message.o: ../shared_lib/message.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/689862490" 
+	@${RM} ${OBJECTDIR}/_ext/689862490/message.o.d 
+	@${RM} ${OBJECTDIR}/_ext/689862490/message.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../shared_lib/message.c  -o ${OBJECTDIR}/_ext/689862490/message.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/689862490/message.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/689862490/message.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/689862490/uart_debug.o: ../shared_lib/uart_debug.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/689862490" 
+	@${RM} ${OBJECTDIR}/_ext/689862490/uart_debug.o.d 
+	@${RM} ${OBJECTDIR}/_ext/689862490/uart_debug.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../shared_lib/uart_debug.c  -o ${OBJECTDIR}/_ext/689862490/uart_debug.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/689862490/uart_debug.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/689862490/uart_debug.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/689862490/uart_rf.o: ../shared_lib/uart_rf.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/689862490" 
+	@${RM} ${OBJECTDIR}/_ext/689862490/uart_rf.o.d 
+	@${RM} ${OBJECTDIR}/_ext/689862490/uart_rf.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../shared_lib/uart_rf.c  -o ${OBJECTDIR}/_ext/689862490/uart_rf.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/689862490/uart_rf.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC30F4013=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -O0 -I"../shared_lib" -msmart-io=1 -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/689862490/uart_rf.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
