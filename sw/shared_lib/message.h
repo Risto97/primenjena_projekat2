@@ -1,6 +1,8 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
+#include "uart_rf.h"
+
 /* Packet format
 =========================
    PREAMBLE: 1 byte
@@ -14,7 +16,7 @@
 #define PREAMBLE 0x55
 #define ADDR 0x24
 #define PAYLOAD_LEN 2
-#define TRAILER 0x55
+#define TRAILER 0xAB
 
 int decode_message(char *raw, char *message);
 void package_message(char *message, char *packet);

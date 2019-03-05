@@ -25,6 +25,7 @@ int16_t main(void)
   char packet[PACKET_LEN+1];
   int x;
   int y;
+  int i;
   int turbo;
   ConfigureOscillator();
 
@@ -33,24 +34,17 @@ int16_t main(void)
   joystick_init();
   joystick_ADC_start();
 
-  while(1)
-    {
-      x = get_joystickX();
-      y = get_joystickY();
-      turbo = get_Turbo();
+  while(1){
+    x = get_joystickX();
+    y = get_joystickY();
+    turbo = get_Turbo();
 
-      command = gen_command(x, y, turbo);
-      encode_command(command, message);
-      package_message(message, packet);
+    command = gen_command(x, y, turbo);
+    encode_command(command, message);
+    package_message(message, packet);
 
-      WriteUART1(packet[0]);
-      WriteUART1(packet[1]);
-      WriteUART1(packet[2]);
-      WriteUART1(packet[3]);
-      WriteUART1(packet[4]);
-      UART1_putst("\n");
-
-      __delay_ms(100);
-
+    for(i=0; i<PACKET_LEN; i++){
+      WriteUART1(packet[i]);
     }
+  }
 }

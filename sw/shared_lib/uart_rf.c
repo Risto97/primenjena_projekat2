@@ -8,16 +8,23 @@ static unsigned int wordReceived = 0;
 static char buff[32];
 static unsigned int len = 0;
 static int n = 0;
+static int preamble_received = 0;
 void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void) {
   IFS0bits.U1RXIF = 0;
   tempRX = U1RXREG;
-  buff[n] = tempRX;
-  n++;
-  if(buff[n-1] == 13){  // 13 is ascii for carriage return
-    buff[n-1] = '\0';
+  if(tempRX == (char)PREAMBLE){
+    preamble_received = 1;
+  }
+  if(preamble_received == 1){
+    WriteUART1(tempRX);
+    buff[n] = tempRX;
+    n++;
+  }
+  if(tempRX == (char)TRAILER){
     wordReceived = 1;
     len = n;
     n = 0;
+    preamble_received = 0;
   }
 }
 

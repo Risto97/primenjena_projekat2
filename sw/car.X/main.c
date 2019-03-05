@@ -51,23 +51,23 @@ int16_t main(void)
           sanity_set(0);
         }
       }
-      __delay_ms(100);
+      /* __delay_ms(100); */
     }
 }
 
 
 void print_command(Command_t command){
-  UART2_putst("\nMOT1_start: ");
-  WriteUART2dec2string(command.MOT1_status);
-  UART2_putst("\nMOT2_start: ");
-  WriteUART2dec2string(command.MOT2_status);
-  UART2_putst("\nMOT1_dir: ");
-  WriteUART2dec2string(command.MOT1_dir);
-  UART2_putst("\nMOT2_dir: ");
-  WriteUART2dec2string(command.MOT2_dir);
-  UART2_putst("\nMOT1_speed: ");
-  WriteUART2dec2string(command.MOT1_speed);
-  UART2_putst("\nMOT2_speed: ");
-  WriteUART2dec2string(command.MOT2_speed);
-  UART2_putst("\n");
+  UART1_putst("\nMOT1_start: ");
+  WriteUART1dec2string(command.MOT1_status);
+  UART1_putst("\nMOT2_start: ");
+  WriteUART1dec2string(command.MOT2_status);
+  UART1_putst("\nMOT1_dir: ");
+  WriteUART1dec2string(command.MOT1_dir);
+  UART1_putst("\nMOT2_dir: ");
+  WriteUART1dec2string(command.MOT2_dir);
+  UART1_putst("\nMOT1_speed: ");
+  WriteUART1dec2string(command.MOT1_speed);
+  UART1_putst("\nMOT2_speed: ");
+  WriteUART1dec2string(command.MOT2_speed);
+  UART1_putst("\n");
 }

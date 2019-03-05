@@ -101,7 +101,7 @@ void _mot2_start(){
 
 void mot2_start(int dir, unsigned int duty){
   /*
-    If not limit switch is pressed steering motor is allowed to work.
+    If limit switch is not pressed steering motor is allowed to work.
     If limit switch is pressed, enable steering motor only if requested direction is opposite.
    */
   if((!LIMIT_SW1 && !LIMIT_SW2) || (LIMIT_SW1 && dir == 1) || ( LIMIT_SW2 && dir == 0)){

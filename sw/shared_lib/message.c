@@ -4,12 +4,12 @@
 #include "message.h"
 
 int decode_message(char *packet, char *message){
-  if(packet[0] == PREAMBLE && packet[1] == ADDR && packet[2+PAYLOAD_LEN] == TRAILER){
-      message[0] = packet[2];
-      message[1] = packet[3];
-      message[2] = 13; // endl
-      str_clear(packet, PACKET_LEN);
-      return 1;
+  if(packet[0] == (char)PREAMBLE && packet[1] == (char)ADDR && packet[2+PAYLOAD_LEN] == (char)TRAILER){
+    message[0] = packet[2];
+    message[1] = packet[3];
+    message[2] = 13; // endl
+    str_clear(packet, PACKET_LEN);
+    return 1;
   }
   else{
     str_clear(packet, PACKET_LEN);

@@ -2,6 +2,7 @@
 #define UART_RF_H
 
 #include <p30Fxxxx.h>
+#include "message.h"
 
 void initRF();
 void UART1_putst(char *str);
