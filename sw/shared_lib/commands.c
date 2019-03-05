@@ -17,17 +17,12 @@ void decode_command(char* message, Command_t *command){
 void encode_command(Command_t command, char* message){
   message[0] = 0;
   message[1] = 0;
-  message[2] = 13; // endl
-
-  if(command.MOT1_speed == 13) // avoid message to be 13
-    command.MOT1_speed = 12;
 
   message[0] = message[0] | (command.MOT1_status & 0x01);
   message[0] = message[0] | ((command.MOT2_status & 0x01) << 1);
   message[0] = message[0] | ((command.MOT1_dir & 0x01) << 2);
   message[0] = message[0] | ((command.MOT2_dir & 0x01) << 3);
   message[0] = message[0] | ((command.MOT1_turbo & 0x01) << 4);
-  message[0] = message[0] | 0x80; // avoid message to be 13
 
   message[1] = message[1] | (command.MOT1_speed & 0x0F);
   message[1] = message[1] | ((command.MOT2_speed & 0x0F) << 4);

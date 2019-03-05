@@ -4,11 +4,11 @@
 #include "message.h"
 
 int decode_message(char *packet, char *message){
+  int i;
   if(packet[0] == (char)PREAMBLE && packet[1] == (char)ADDR && packet[2+PAYLOAD_LEN] == (char)TRAILER){
-    message[0] = packet[2];
-    message[1] = packet[3];
-    message[2] = 13; // endl
-    str_clear(packet, PACKET_LEN);
+    for(i = 0; i<PAYLOAD_LEN; i++){
+      message[i] = packet[2+i];
+    }
     return 1;
   }
   else{
@@ -22,7 +22,6 @@ void package_message(char *message, char *packet){
   packet[1] = ADDR;
   _strcpy(message, &packet[2], PAYLOAD_LEN);
   packet[2+PAYLOAD_LEN] = TRAILER;
-  packet[2+PAYLOAD_LEN+1] = 13; // endl
 }
 
 void _strcpy(char *src, char *dest, int len){

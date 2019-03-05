@@ -12,15 +12,15 @@ static int preamble_received = 0;
 void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void) {
   IFS0bits.U1RXIF = 0;
   tempRX = U1RXREG;
-  if(tempRX == (char)PREAMBLE){
+  if(tempRX == (char)PREAMBLE && !preamble_received){
     preamble_received = 1;
   }
-  if(preamble_received == 1){
+  if(preamble_received){
     WriteUART1(tempRX);
     buff[n] = tempRX;
     n++;
   }
-  if(tempRX == (char)TRAILER){
+  if(tempRX == (char)TRAILER && preamble_received){
     wordReceived = 1;
     len = n;
     n = 0;
