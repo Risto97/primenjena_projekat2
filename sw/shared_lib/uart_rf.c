@@ -16,7 +16,6 @@ void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void) {
     preamble_received = 1;
   }
   if(preamble_received == 1){
-    WriteUART1(tempRX);
     buff[n] = tempRX;
     n++;
   }
